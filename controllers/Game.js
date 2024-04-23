@@ -37,7 +37,7 @@ export default class Game {
     const { container, player, enemy } = this;
     container.className = 'deployment';
 
-    // Computer.autoDeploy(enemy);
+    Computer.autoDeploy(enemy);
 
     const deployZone = new DeploymentView(player, container);
     deployZone.attachEventHandlers();
