@@ -1,10 +1,10 @@
 export default class Gameboard {
   constructor(size = 10) {
     this.size = size;
-    this.board = this.initializeBoard(size);
+    this.grid = this.initializeGrid(size);
   }
 
-  initializeBoard(size) {
+  initializeGrid(size) {
     const arr = [];
     for (let i = 0; i < size; i++) {
       arr[i] = [];
@@ -51,7 +51,7 @@ export default class Gameboard {
 
     // Place the parts on the coords
     coordsList.forEach((coords) => {
-      this.board[coords[0]][coords[1]].ship = ship;
+      this.grid[coords[0]][coords[1]].ship = ship;
     });
 
     // Save coords on the ship itself
@@ -63,7 +63,7 @@ export default class Gameboard {
   undeployShip(ship) {
     const coords = ship.coords;
     coords.forEach((coord) => {
-      this.board[coord[0]][coord[1]].ship = null;
+      this.grid[coord[0]][coord[1]].ship = null;
     });
     ship.coords = [];
   }
@@ -74,14 +74,14 @@ export default class Gameboard {
       coords[1] < 0 ||
       coords[0] > this.size - 1 ||
       coords[1] > this.size - 1 ||
-      this.board[coords[0]][coords[1]].ship
+      this.grid[coords[0]][coords[1]].ship
     )
       return false;
     return true;
   }
 
   receiveAttack(coords) {
-    const area = this.board[coords[0]][coords[1]];
+    const area = this.grid[coords[0]][coords[1]];
     if (area.isShot) {
       return false;
     } else if (area.ship) {

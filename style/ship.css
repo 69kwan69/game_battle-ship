@@ -1,15 +1,49 @@
 .part {
-  --size: 3rem;
-  border: 2px solid;
   width: var(--size);
   height: var(--size);
+
+  background: var(--clr-cell-ship);
+  border: 2px solid;
+
   cursor: pointer;
 }
 
+.ship {
+  display: grid;
+  gap: 2px;
+  transform-origin: calc(var(--size) / 2) 50%;
+}
+
 .ship.invisible {
-  opacity: 0;
+  display: none;
 }
 
 .ship:hover {
   cursor: pointer;
+}
+
+.ship.deployed {
+  position: absolute;
+  z-index: 1000;
+}
+
+.ship.deployed.failed > * {
+  background: lightcoral;
+  border-color: red;
+}
+
+.ship[data-direction='1'] {
+  rotate: 0deg;
+}
+
+.ship[data-direction='2'] {
+  rotate: 90deg;
+}
+
+.ship[data-direction='3'] {
+  rotate: 180deg;
+}
+
+.ship[data-direction='4'] {
+  rotate: 270deg;
 }

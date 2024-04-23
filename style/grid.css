@@ -3,11 +3,11 @@
   --clr-cell-ship: #8b8b8b;
   --clr-cell-ship-hit: #c4c4c4;
   --clr-cell-hit-hover: #b91f1f;
+  --size: 48px;
 }
 
 /* Default */
 .cell {
-  --size: 3rem;
   border: 2px solid;
   width: var(--size);
   height: var(--size);
@@ -21,11 +21,13 @@
 }
 
 .editing .cell.available {
-  border-color: lime;
+  border-color: green;
+  background: lime;
 }
 
 .editing .cell.unavailable {
   border-color: red;
+  background: lightcoral;
 }
 
 /* Battle */
@@ -47,6 +49,11 @@
   background: var(--clr-cell-ship);
 }
 
+.enemy .cell.ship {
+  background: initial;
+  cursor: crosshair;
+}
+
 .cell.ship.hit {
   background: var(--clr-cell-ship-hit);
 }
@@ -54,6 +61,10 @@
 .cell:hover {
   opacity: 0.45;
   cursor: crosshair;
+}
+
+.player .cell:hover {
+  cursor: initial;
 }
 
 .cell.hit:hover {
