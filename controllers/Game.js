@@ -7,7 +7,7 @@ import Component from '../views/Component.js';
 export default class Game {
   constructor(container) {
     this.container = container;
-    this.player = new Player('man');
+    this.player = new Player('player');
     this.enemy = new Player('pc');
   }
 
